@@ -11,7 +11,7 @@ export default function AboutSection() {
         {/* Image side */}
         <div className="w-full lg:w-1/2 rounded-xl overflow-hidden shadow-2xl border border-gray-700">
           <Image
-            src="/images/company.jpg"
+            src="/images/company2.jpg"
             alt="BuildCo Construction team working"
             width={600}
             height={400}

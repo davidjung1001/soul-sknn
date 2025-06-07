@@ -27,7 +27,7 @@ export default function HeroSection() {
 
       {/* Heading and Tagline */}
       <h1 className="text-5xl font-bold text-white drop-shadow-lg max-w-3xl z-10">
-        Gold Standard Contracting
+        Your Company
       </h1>
       <p className="mt-4 text-xl text-white drop-shadow-md max-w-xl z-10">
         Reliable remodeling, roofing, and contracting services for your home or business.

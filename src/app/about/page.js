@@ -50,7 +50,7 @@ export default function AboutPage() {
       <section className="flex flex-col md:flex-row items-center gap-8 fade-in-on-scroll opacity-0 translate-y-8 transition-all duration-700">
         <div className="md:w-1/2 w-full rounded-lg overflow-hidden shadow-md">
           <Image
-            src="/images/company.jpg"
+            src="/images/company2.jpg"
             alt="Gold Standard Contracting"
             width={600}
             height={400}
@@ -59,7 +59,7 @@ export default function AboutPage() {
         </div>
         <div className="md:w-1/2 w-full space-y-4 text-center md:text-left">
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
-            About Gold Standard Contracting
+            About
           </h1>
           <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
             We’re a family-owned business dedicated to quality craftsmanship and customer satisfaction.

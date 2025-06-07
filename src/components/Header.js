@@ -24,7 +24,7 @@ export default function Header() {
             className="rounded-full object-cover"
           />
           <span className="font-semibold text-xl sm:text-2xl text-white tracking-tight">
-            Gold Standard Contracting
+            Your Comapny 
           </span>
         </Link>
 

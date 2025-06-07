@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 
 const projectsData = {
   Remodeling: [
@@ -60,56 +61,52 @@ function ExpandableSection({ category, projects, isOpen, onToggle }) {
   }, [isOpen]);
 
   return (
-    <div className="mb-8 rounded-lg shadow-lg border border-gray-200">
+    <div className="mb-6 rounded-xl overflow-hidden shadow-md bg-[#1e293b] border border-gray-700 text-white">
+      {/* Toggle Button */}
       <button
         onClick={onToggle}
-        aria-expanded={isOpen}
-        aria-controls={`${category}-projects`}
-        className="w-full flex justify-between items-center px-6 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold text-lg rounded-t-lg hover:from-blue-700 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="w-full flex justify-between items-center px-6 py-4 bg-gradient-to-r from-amber-600 to-amber-400 text-white text-xl font-bold hover:from-amber-700 hover:to-amber-500 transition"
       >
         <span>{category}</span>
         <svg
-          className={`w-6 h-6 transform transition-transform duration-300 ${
-            isOpen ? "rotate-180" : "rotate-0"
+          className={`w-6 h-6 transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
           }`}
           fill="none"
           stroke="currentColor"
           strokeWidth={2}
-          strokeLinecap="round"
-          strokeLinejoin="round"
           viewBox="0 0 24 24"
-          aria-hidden="true"
         >
-          <path d="M6 9l6 6 6-6" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
 
+      {/* Content */}
       <div
-        id={`${category}-projects`}
         ref={contentRef}
+        className="transition-all duration-500 ease-in-out overflow-hidden"
         style={{ maxHeight }}
-        className="overflow-hidden transition-max-height duration-500 ease-in-out bg-white px-6"
       >
-        <ul className="py-4 space-y-8">
-          {projects.map(({ id, title, description, image }) => (
-            <li
-              key={id}
-              className="border-b border-gray-100 pb-4 last:border-b-0 last:pb-0 flex flex-col md:flex-row items-center gap-6"
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="relative rounded-lg overflow-hidden bg-gray-800 hover:scale-[1.02] transition-transform shadow-md"
             >
-              {image && (
-                <img
-                  src={image}
-                  alt={title}
-                  className="w-full md:w-48 h-32 object-cover rounded-md shadow-sm flex-shrink-0"
-                />
-              )}
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
-                <p className="mt-1 text-gray-600">{description}</p>
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={600}
+                height={400}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
+                <p className="text-sm text-gray-300">{project.description}</p>
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
@@ -118,21 +115,18 @@ function ExpandableSection({ category, projects, isOpen, onToggle }) {
 export default function ProjectsSection() {
   const [openCategory, setOpenCategory] = useState(null);
 
-  function toggleCategory(category) {
-    setOpenCategory(openCategory === category ? null : category);
-  }
-
   return (
-    <section className="max-w-5xl mx-auto px-6 py-16">
-      <h2 className="text-4xl font-extrabold mb-12 text-center text-gray-900">Our Projects</h2>
-
+    <section className="bg-[#0f172a] text-white py-12 px-4 sm:px-6 lg:px-12">
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10">Our Projects</h2>
       {Object.entries(projectsData).map(([category, projects]) => (
         <ExpandableSection
           key={category}
           category={category}
           projects={projects}
           isOpen={openCategory === category}
-          onToggle={() => toggleCategory(category)}
+          onToggle={() =>
+            setOpenCategory(openCategory === category ? null : category)
+          }
         />
       ))}
     </section>

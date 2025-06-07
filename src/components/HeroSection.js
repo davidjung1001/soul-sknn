@@ -21,11 +21,13 @@ export default function HeroSection() {
           alt="Construction workers at a job site"
           className="w-full h-full object-cover object-center opacity-90"
         />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       </div>
 
       {/* Heading and Tagline */}
       <h1 className="text-5xl font-bold text-white drop-shadow-lg max-w-3xl z-10">
-        BuildCo Construction
+        Gold Standard Contracting
       </h1>
       <p className="mt-4 text-xl text-white drop-shadow-md max-w-xl z-10">
         Reliable remodeling, roofing, and contracting services for your home or business.

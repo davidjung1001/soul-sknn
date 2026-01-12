@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -26,104 +25,199 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <main className="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-16 overflow-x-hidden text-gray-800 font-sans">
-      {/* Back Button */}
-      <button
-        onClick={() => router.back()}
-        aria-label="Go back"
-        className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium text-sm sm:text-base"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 sm:h-6 sm:w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
+    <main className="min-h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-16 overflow-x-hidden">
+        {/* Back Button */}
+        <button
+          onClick={() => router.back()}
+          aria-label="Go back"
+          className="group flex items-center text-gray-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white/50 rounded-lg px-2 py-1"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-        </svg>
-        Back
-      </button>
+          <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center mr-2 group-hover:bg-white/20 transition-colors">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </div>
+          <span className="font-semibold">Back</span>
+        </button>
 
-      {/* Hero Section */}
-      <section className="flex flex-col md:flex-row items-center gap-8 fade-in-on-scroll opacity-0 translate-y-8 transition-all duration-700">
-        <div className="md:w-1/2 w-full rounded-lg overflow-hidden shadow-md">
-          <Image
-            src="/images/company2.jpg"
-            alt="Gold Standard Contracting"
-            width={600}
-            height={400}
-            className="object-cover w-full h-auto"
-          />
-        </div>
-        <div className="md:w-1/2 w-full space-y-4 text-center md:text-left">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
-            About
-          </h1>
-          <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-            We’re a family-owned business dedicated to quality craftsmanship and customer satisfaction.
-            With over 20 years of experience, we take pride in transforming houses into dream homes.
-          </p>
-        </div>
-      </section>
-
-      {/* Mission */}
-      <section className="space-y-4 fade-in-on-scroll opacity-0 translate-y-8 transition-all duration-700">
-        <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 text-center sm:text-left">Our Mission</h2>
-        <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-          Our mission at Gold Standard Contracting is simple: deliver exceptional construction results while
-          building lasting relationships with our clients. We focus on integrity, transparency, and consistent
-          excellence in every project.
-        </p>
-      </section>
-
-      {/* Timeline */}
-      <section className="space-y-6 fade-in-on-scroll opacity-0 translate-y-8 transition-all duration-700">
-        <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 text-center sm:text-left">Our Journey</h2>
-        <ul className="border-l-4 border-blue-600 pl-6 space-y-6">
-          <li>
-            <div className="text-blue-600 font-semibold">2003</div>
-            <p className="text-gray-700 text-sm sm:text-base">Gold Standard Contracting is founded with a small but passionate team.</p>
-          </li>
-          <li>
-            <div className="text-blue-600 font-semibold">2010</div>
-            <p className="text-gray-700 text-sm sm:text-base">Completed 100+ residential remodels across the region.</p>
-          </li>
-          <li>
-            <div className="text-blue-600 font-semibold">2018</div>
-            <p className="text-gray-700 text-sm sm:text-base">Expanded into commercial contracting and larger-scale development.</p>
-          </li>
-          <li>
-            <div className="text-blue-600 font-semibold">Today</div>
-            <p className="text-gray-700 text-sm sm:text-base">Continuing to set the gold standard in quality and client trust.</p>
-          </li>
-        </ul>
-      </section>
-
-      {/* Team Members */}
-      <section className="space-y-6 fade-in-on-scroll opacity-0 translate-y-8 transition-all duration-700">
-        <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 text-center sm:text-left">Meet the Team</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {[
-            { name: "John Rivera", role: "Founder & CEO", image: "/images/team1.jpg" },
-            { name: "Emily Sanchez", role: "Project Manager", image: "/images/team2.jpg" },
-            { name: "Michael Tran", role: "Lead Carpenter", image: "/images/team3.jpg" },
-          ].map((member, idx) => (
-            <div key={idx} className="bg-white shadow rounded-lg p-4 text-center">
-              <Image
-                src={member.image}
-                alt={member.name}
-                width={120}
-                height={120}
-                className="rounded-full mx-auto mb-4 object-cover"
-              />
-              <h3 className="text-lg font-semibold text-gray-800">{member.name}</h3>
-              <p className="text-sm text-gray-600">{member.role}</p>
+        {/* Hero Section */}
+        <section className="flex flex-col md:flex-row items-center gap-8 fade-in-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+          <div className="md:w-1/2 w-full rounded-xl overflow-hidden shadow-2xl border border-gray-700">
+            <img
+              src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop"
+              alt="Soul SKNN - Professional Esthetician"
+              className="object-cover w-full h-auto"
+            />
+          </div>
+          <div className="md:w-1/2 w-full space-y-4 text-center md:text-left">
+            <div className="inline-block mb-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">
+              <span className="text-sm font-semibold tracking-wider">ABOUT SOUL SKNN</span>
             </div>
-          ))}
-        </div>
-      </section>
+            <h1 className="text-3xl sm:text-4xl font-bold">
+              [Your Name]
+            </h1>
+            <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+              [Insert your introduction here - Example: "I'm a licensed esthetician passionate about helping clients achieve their healthiest, most radiant skin. With specialized training in acne treatment, pregnancy-safe skincare, and customized facial therapies, I create personalized experiences that address each client's unique skin goals."]
+            </p>
+          </div>
+        </section>
+
+        {/* Philosophy */}
+        <section className="space-y-4 fade-in-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-center sm:text-left">My Approach to Skincare</h2>
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 sm:p-8">
+            <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-4">
+              At Soul SKNN, your skin's health and goals are my top priority. I believe in a holistic approach that combines:
+            </p>
+            <ul className="space-y-2 text-gray-300">
+              <li className="flex items-start gap-3">
+                <span className="text-rose-400 mt-1">✦</span>
+                <span>Personalized treatment plans tailored to your unique skin type and concerns</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-rose-400 mt-1">✦</span>
+                <span>Results-driven products and techniques backed by skincare science</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-rose-400 mt-1">✦</span>
+                <span>A relaxing, rejuvenating experience that nourishes both skin and soul</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* What's Included */}
+        <section className="space-y-6 fade-in-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-center sm:text-left">Every Facial Includes</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              "Deep cleansing",
+              "Gentle exfoliation",
+              "Extractions",
+              "Customized masks",
+              "Corrective serums",
+              "SPF protection",
+              "Head, neck & shoulder massage",
+              "Steamed hot towels"
+            ].map((item, idx) => (
+              <div key={idx} className="flex items-center gap-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4">
+                <div className="w-6 h-6 rounded-full bg-rose-500/20 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-4 h-4 text-rose-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span className="text-gray-300">{item}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Journey Timeline */}
+        <section className="space-y-6 fade-in-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-center sm:text-left">My Journey</h2>
+          <ul className="border-l-4 border-rose-500 pl-6 space-y-6">
+            <li>
+              <div className="text-rose-400 font-semibold">[Year - e.g., 2016]</div>
+              <p className="text-gray-400 text-sm sm:text-base">[Milestone - e.g., "Graduated from esthetics school and earned my license"]</p>
+            </li>
+            <li>
+              <div className="text-rose-400 font-semibold">[Year - e.g., 2019]</div>
+              <p className="text-gray-400 text-sm sm:text-base">[Milestone - e.g., "Completed advanced training in Face Reality acne treatment"]</p>
+            </li>
+            <li>
+              <div className="text-rose-400 font-semibold">[Year - e.g., 2022]</div>
+              <p className="text-gray-400 text-sm sm:text-base">[Milestone - e.g., "Launched Soul SKNN and began serving clients independently"]</p>
+            </li>
+            <li>
+              <div className="text-rose-400 font-semibold">Today</div>
+              <p className="text-gray-400 text-sm sm:text-base">[Current status - e.g., "Helping clients achieve radiant, healthy skin through personalized facial treatments"]</p>
+            </li>
+          </ul>
+        </section>
+
+        {/* Specialties */}
+        <section className="space-y-6 fade-in-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-center sm:text-left">Areas of Expertise</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {[
+              { 
+                title: "Acne Treatment", 
+                description: "Face Reality certified",
+                icon: "✨"
+              },
+              { 
+                title: "Pregnancy Skincare", 
+                description: "Safe & gentle treatments",
+                icon: "🤰"
+              },
+              { 
+                title: "Custom Facials", 
+                description: "Tailored to your needs",
+                icon: "💆"
+              },
+            ].map((specialty, idx) => (
+              <div key={idx} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center hover:bg-white/10 transition-colors">
+                <div className="text-4xl mb-3">{specialty.icon}</div>
+                <h3 className="text-lg font-semibold mb-2">{specialty.title}</h3>
+                <p className="text-sm text-gray-400">{specialty.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Credentials */}
+        <section className="space-y-6 fade-in-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-center sm:text-left">Credentials & Training</h2>
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 sm:p-8 space-y-3">
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <p className="text-sm sm:text-base text-gray-300">[Credential 1 - e.g., "Licensed Esthetician, State of Texas"]</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <p className="text-sm sm:text-base text-gray-300">[Credential 2 - e.g., "Face Reality Certified Acne Specialist"]</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <p className="text-sm sm:text-base text-gray-300">[Credential 3 - e.g., "Advanced Training in Pregnancy-Safe Skincare"]</p>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="text-center fade-in-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+          <div className="inline-block p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl">
+            <h3 className="text-2xl font-bold mb-3">Ready for radiant skin?</h3>
+            <p className="text-gray-400 mb-6">Book your personalized facial treatment today</p>
+            <button 
+              onClick={() => router.push('/book-appointment')}
+              className="px-8 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300"
+            >
+              Book Appointment
+            </button>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }

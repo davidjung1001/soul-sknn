@@ -24,7 +24,7 @@ export default function Header() {
             className="rounded-full object-cover"
           />
           <span className="font-semibold text-xl sm:text-2xl text-white tracking-tight">
-            Your Comapny 
+            Soul SKNN 
           </span>
         </Link>
 
@@ -39,9 +39,7 @@ export default function Header() {
           <Link href="/contact" className="hover:text-blue-400 transition">
             Contact
           </Link>
-          <Link href="/get-quote" className="hover:text-blue-400 transition">
-            Get a Quote
-          </Link>
+         
         </nav>
 
         {/* Mobile Menu Button */}
